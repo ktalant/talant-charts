@@ -1,0 +1,14 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: nginx-main-ingress
+  annotations:
+    kubernetes.io/ingress.class: nginx 
+spec:
+  rules:
+  - host: main.spacextech.com
+    http:
+      paths:
+      - backend:
+          serviceName: nginx-deploy-main-svc
+          servicePort: 80
